@@ -1,0 +1,14 @@
+{
+    "name": "teamnovu/educa-federation-client-example",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Oliver Kaufmann",
+            "email": "kaufmann@novu.ch"
+        }
+    ],
+    "require": {
+        "teamnovu/educa-federation-client": "^1.0"
+    }
+}
