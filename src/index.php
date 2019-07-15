@@ -1,3 +1,8 @@
+<?php
+session_start();
+$actualLink = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+$config = require './config.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +24,30 @@
             <li><a href="/acs.php" class="text-blue-600">Return URL to handle SAMLResponse</a> <span class="font-bold">(Open this link will not work)</span></li>
         </ul>
     </p>
+    <hr class="border mt-8"/>
+    <h2 class="text-xl font-bold pt-4">Example usage "Login Button"</h2>
+
+    <div class="mt-4">
+        <form action="https://federation.educa.ch/federation/discovery" method="post" style="display: inline">
+            <input type="hidden" name="ressource_name" value="<?=$actualLink?>"  />
+            <input type="hidden" name="cookie_sessionid" value="<?=session_id()?>" />
+            <input type="hidden" name="entity_id" value="<?=$config['entityId']?>" />
+            <button class="px-4 py-2 rounded bg-blue-400 text-white" type="submit">Mit dem Identifikator anmelden</button>
+        </form>
+        <div class="mt-6">
+            <h3 class="font-bold">Source Code of Button</h3>
+<pre class="text-sm">
+<code>
+    &lt;form action="https://federation.educa.ch/federation/discovery" method="post" style="display: inline">
+        &lt;input type="hidden" name="ressource_name" value="<?=$actualLink?>"  /&gt;
+        &lt;input type="hidden" name="cookie_sessionid" value="<?=session_id()?>" /&gt;
+        &lt;input type="hidden" name="entity_id" value="<?=$config['entityId']?>" /&gt;
+        &lt;button class="px-4 py-2 rounded bg-blue-400 text-white" type="submit"&gt;Mit dem Identifikator anmelden&lt;/button&gt;
+    &lt;/form>
+</code>
+</pre>
+            </div>
+        </div>
     </div>
 </body>
 </html>
