@@ -28,7 +28,7 @@ $config = require './config.php';
     <h2 class="text-xl font-bold pt-4">Example usage "Login Button"</h2>
 
     <div class="mt-4">
-        <form action="https://federation.educa.ch/federation/discovery" method="post" style="display: inline">
+        <form action="https://discovery-federation.educa.ch/federation/discovery" method="post" style="display: inline">
             <input type="hidden" name="ressource_name" value="<?=$actualLink?>"  />
             <input type="hidden" name="cookie_sessionid" value="<?=session_id()?>" />
             <input type="hidden" name="entity_id" value="<?=$config['entityId']?>" />
@@ -38,7 +38,7 @@ $config = require './config.php';
             <h3 class="font-bold">Source Code of Button</h3>
 <pre class="text-sm">
 <code>
-    &lt;form action="https://federation.educa.ch/federation/discovery" method="post" style="display: inline">
+    &lt;form action="https://discovery-federation.educa.ch/federation/discovery" method="post" style="display: inline">
         &lt;input type="hidden" name="ressource_name" value="<?=$actualLink?>"  /&gt;
         &lt;input type="hidden" name="cookie_sessionid" value="<?=session_id()?>" /&gt;
         &lt;input type="hidden" name="entity_id" value="<?=$config['entityId']?>" /&gt;
